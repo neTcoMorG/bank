@@ -1,0 +1,100 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="/css/reset.css" rel="stylesheet">
+        <link href="/css/home.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="my">
+                    <div class="info"><p>영준뱅크 <span th:text="${AN}"></span></p></div>
+                    <h1 id="money" th:text="${MONEY}">327,388 원</h1>
+                </div>
+                <div class="btns">
+                    <button id="fillBtn" onclick="location.href='/bank/add'">채우기</button>
+                    <button id="sendBtn" onclick="location.href='/bank/sendForm'">보내기</button>
+                </div>
+                <div class="history">
+                    <div class="tool">
+                        <select>
+                            <option>전체</option>
+                            <option>입금</option>
+                            <option>출금</option>
+                        </select>
+                    </div>
+                    <div class="view">
+                        <div th:each="history : ${HISTORIES}" class="item">
+                            <th:block th:if="${#strings.equals(history.tradeType, 'RECV')}">
+                                <div class="left">
+                                    <div class="iconBlue"></div>
+                                    <div class="info">
+                                        <h1 class="name" th:text="${history.raw.transfer.userName}"></h1>
+                                        <p class="date" th:text="${history.raw.date}">01:50</p>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <h1 class="money color-blue" th:text="${history.raw.money}">-53000</h1>
+                                    <p class="current-money" style="margin-top: 5px;" th:text="${history.raw.receiverLeftMoney}"></p>
+                                </div>
+                            </th:block> 
+                            <th:block th:unless="${#strings.equals(history.tradeType, 'RECV')}">
+                                <div class="left">
+                                    <div class="iconRed"></div>
+                                    <div class="info">
+                                        <h1 class="name" th:text="${history.raw.receiver.userName}"></h1>
+                                        <p class="date" th:text="${history.raw.date}">01:50</p>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <h1 class="money color-red" th:text="'-' + ${history.raw.money}">-53000</h1>
+                                    <p class="current-money" style="margin-top: 5px;" th:text="${history.raw.transferLeftMoney}"></p>
+                                </div>
+                            </th:block>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function numberCounter(target_frame, target_number) {
+            this.count = 0; this.diff = 0;
+            this.target_count = parseInt(target_number);
+            this.target_frame = document.getElementById(target_frame);
+            this.timer = null;
+            this.counter();
+        };
+
+        numberCounter.prototype.counter = function() {
+            const self = this;
+            this.diff = this.target_count - this.count;
+        
+            if (this.diff > 0) {
+                self.count += Math.ceil(this.diff / 5);
+            }
+        
+            this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        
+            if (this.count < this.target_count) {
+                this.timer = setTimeout(function() { self.counter(); }, 20);
+            } 
+            else {
+                clearTimeout(this.timer);
+            }
+        };
+
+        const currentMoney = document.getElementById("money");
+        console.log(currentMoney.innerText);
+        new numberCounter("money", currentMoney.innerText);
+
+        const money = document.querySelectorAll(".money");
+        const current = document.querySelectorAll(".current-money");
+        money.forEach(item => {
+            item.innerText = item.innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        });
+
+        current.forEach(item => {
+            item.innerText = item.innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        })
+    </script>
+</html>

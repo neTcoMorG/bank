@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="/css/reset.css" rel="stylesheet">
+        <link href="/css/login.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="welcome">
+                    <p><span data-aos="flip-left">영준뱅크</span>에</p>
+                    <p>오신 걸 환영해요!</p>
+                </div>
+                <div class="step1">
+                    <form method="post" action="/auth/login">
+                        <!-- <h1 style="margin-bottom: 8px; color: gray;">처음 이용하세요?</h1> -->
+                        <input name="name" style="margin-bottom: 12px;" type="text" placeholder="이름" />
+                        <p style="color: #4880ee; font-weight: bold; font-size: 14px;">처음 이용하세요?</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      sessionStorage.removeItem("LOGIN");
+    </script>   
+</html>

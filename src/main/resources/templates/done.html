@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="/css/reset.css" rel="stylesheet">
+        <link href="/css/done.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="welcome">
+                    <p>성공적으로</p>
+                    <p><span>송금</span>이 진행되었어요!</p>
+                </div>
+                <div class="step1">
+                    <p style='color: gray;'>송금 액: <span style='color: gray;' th:text="${MONEY}"></span></p>
+                    <p style='color: gray;'>받는 분: <span style='color: gray;' th:text="${NAME}"></span></p>
+                </div>
+
+                <button onclick="location.href='/bank'">확인</button>
+            </div>
+        </div>
+    </body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>   
+</html>

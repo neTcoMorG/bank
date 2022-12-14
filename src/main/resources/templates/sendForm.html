@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link href="/css/reset.css" rel="stylesheet">
+        <link href="/css/login.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="wrapper">
+                <div class="welcome">
+                    <p><span data-aos="flip-left">송금</span></p>
+                    <p>누구에게 하시겠어요?</p>
+                </div>
+                <div class="step1">
+                    <form method="get" action="/bank/sendDetail">
+                        <!-- <h1 style="margin-bottom: 8px; color: gray;">처음 이용하세요?</h1> -->
+                        <input name="accountNumber" style="margin-bottom: 12px;" type="text" placeholder="계좌번호" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>   
+</html>

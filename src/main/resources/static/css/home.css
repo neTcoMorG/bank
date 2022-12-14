@@ -1,0 +1,162 @@
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    width: 520px;
+    margin: auto;
+}
+
+
+.my {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 70px;
+    width: 100%;
+    float: left;
+    margin-bottom: 34px;
+}
+
+.my p, .my span {
+    font-size: 14px;
+    color: gray;
+}
+
+.my h1 {
+    margin-top: 8px;
+    font-size: 37px;
+    font-weight: bold;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#fillBtn {
+    height: 42px;
+    width: 50%;
+    border-radius: 12px;
+    margin-right: 10px;
+    border: 1px solid white;
+    font-size: 14px;
+    background-color: #e9f3fe;
+    color: #0064ff;
+}
+
+#sendBtn {
+    height: 42px;
+    width: 50%;
+    border-radius: 12px;
+    border: 1px solid white;
+    background-color: #0064ff;
+    color: white;
+    font-size: 14px;
+
+}
+
+
+#money {
+    font-size: 38px;
+}
+
+select {
+    font-size: 15px;
+    margin-top: 38px;
+    border: 1px solid white;
+}
+
+.view {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 714px;
+}
+
+.view .iconRed {
+    width: 38px;
+    height: 38px;
+    border-radius: 20px;
+    background-color: red;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.view .iconBlue {
+    width: 38px;
+    height: 38px;
+    border-radius: 20px;
+    background-color: #0064ff;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.view .item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.view .left {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.view .right {
+    width: 20%;
+    text-align: right;
+}
+
+.view .name {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.view .date {
+    margin-top: 4px;
+    font-size: 15px;
+    color: gray;
+}
+
+.view .money {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.view .current-money {
+    font-size: 15px;
+    color: gray;
+}
+
+.color-blue {
+    color: #0064ff;
+}
+
+.color-red {
+    color: crimson;
+}
